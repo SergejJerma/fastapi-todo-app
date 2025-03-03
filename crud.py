@@ -1,6 +1,6 @@
 from typing import List, Optional
 from models import ToDo
-# In-memory storage
+
 todo_list: List[ToDo] = []
 
 def get_all_todos() -> List[ToDo]:

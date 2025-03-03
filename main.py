@@ -31,5 +31,3 @@ def delete_todo(todo_id: int):
         raise HTTPException(status_code=404, detail="ToDo not found")
     crud.delete_todo(todo_id)
     return {"message": "ToDo deleted successfully"}
-# Run the server with: uvicorn main:app --reload
-

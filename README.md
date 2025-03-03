@@ -1,5 +1,5 @@
 # FastAPI To-Do App
-This is a simple To-Do app API built using FastAPI. It allows users to perform CRUD (Create, Read, Update, Delete) operations on to-do items. The app uses FastAPI as the web framework and can be extended or integrated with any frontend or database.
+This is a simple To-Do app API built using FastAPI. It allows users to perform CRUD (Create, Read, Update, Delete) operations on to-do items. The app uses FastAPI as the web framework and can be extended or integrated with any frontend or database (for now, to-do items are stored in-memory storage).
 ## Features
 - Create a new to-do item
 - Read a list of all to-do items
