@@ -11,3 +11,14 @@ This is a simple To-Do app API built using FastAPI. It allows users to perform C
 - FastAPI
 - Pydantic (for data validation)
 - Uvicorn (for serving the app)
+## REST API
+- GET: http://127.0.0.1:8000/todos
+- POST: http://127.0.0.1:8000/todos
+- PUT: http://127.0.0.1:8000/todos/{todo_id}
+- DELETE: http://127.0.0.1:8000/todos/{todo_id}
+A request body sample
+{
+    "id": 1,
+    "title": "Learn Python",
+    "description": "create API"
+}
