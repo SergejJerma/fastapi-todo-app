@@ -17,6 +17,7 @@ This is a simple To-Do app API built using FastAPI. It allows users to perform C
 - PUT: http://127.0.0.1:8000/todos/{todo_id}
 - DELETE: http://127.0.0.1:8000/todos/{todo_id}
 A request body sample
+```json
 {
     "id": 1,
     "title": "Learn Python",
