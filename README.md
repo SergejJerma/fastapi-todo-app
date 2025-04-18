@@ -19,7 +19,7 @@ This is a simple To-Do app API built using FastAPI. It allows users to perform C
 - A request body sample
 ```json
 {
-    "id": 1,
+    "id": "b8f1de40-4c92-4b53-948b-65acf6cbe21c",
     "title": "Learn Python",
     "description": "create API"
 }
