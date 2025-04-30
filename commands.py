@@ -1,18 +1,23 @@
-from typing import List
-from models import ToDo
-import queries
+from sqlalchemy.orm import Session
+from models import ToDoDB
 
-def create_todo(todo: ToDo) -> ToDo:
-    queries.todo_list.append(todo)
+def create_todo(db: Session, todo: ToDoDB):
+    db.add(todo)
+    db.commit()
+    db.refresh(todo)
     return todo
-
-def update_todo(todo_id: str, updated_todo: ToDo) -> ToDo | None:
-    for index, todo in enumerate(queries.todo_list):
-        if todo.id == todo_id:
-            queries.todo_list[index] = updated_todo
-            return updated_todo
-    return None
-
-def delete_todo(todo_id: str) -> bool:
-    queries.todo_list = [todo for todo in queries.todo_list if todo.id != todo_id]
-    return True
+def update_todo(db: Session, todo_id: str, updated_data: dict):
+    todo = db.query(ToDoDB).filter(ToDoDB.id == todo_id).first()
+    if not todo:
+        return None
+    for key, value in updated_data.items():
+        setattr(todo, key, value)
+    db.commit()
+    db.refresh(todo)
+    return todo
+def delete_todo(db: Session, todo_id: str):
+    todo = db.query(ToDoDB).filter(ToDoDB.id == todo_id).first()
+    if todo:
+        db.delete(todo)
+        db.commit()
+    return todo

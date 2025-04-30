@@ -1,8 +1,7 @@
-from typing import List, Optional
-from models import ToDo
+from sqlalchemy.orm import Session
+from models import ToDoDB
 
-todo_list: List[ToDo] = []
-def get_all_todos() -> List[ToDo]:
-    return todo_list
-def get_todo(todo_id: str) -> Optional[ToDo]:
-    return next((todo for todo in todo_list if todo.id == todo_id), None)
+def get_all_todos(db: Session):
+    return db.query(ToDoDB).all()
+def get_todo(db: Session, todo_id: str):
+    return db.query(ToDoDB).filter(ToDoDB.id == todo_id).first()
